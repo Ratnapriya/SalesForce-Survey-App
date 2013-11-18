@@ -166,16 +166,19 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
 {
     
     /* Create the splitview controller and assign it to the rootviewcontroller*/
-    UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
     
-    RootViewController *rootVC = [[RootViewController alloc] init];
-    DetailTableViewController *detailVC = [[DetailTableViewController alloc] initWithNibName:@"DetailTableViewController" bundle:nil];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
+        
+        RootViewController *rootVC = [[RootViewController alloc] init];
+        DetailTableViewController *detailVC = [[DetailTableViewController alloc] initWithNibName:@"DetailTableViewController" bundle:nil];
 
-    UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:rootVC];
-    UINavigationController *detailNav = [[UINavigationController alloc] initWithRootViewController:detailVC];
+        UINavigationController *rootNav = [[UINavigationController alloc] initWithRootViewController:rootVC];
+        UINavigationController *detailNav = [[UINavigationController alloc] initWithRootViewController:detailVC];
 
-    splitViewController.viewControllers = [NSArray arrayWithObjects:rootNav, detailNav, nil];
-    self.window.rootViewController = splitViewController;
+        splitViewController.viewControllers = [NSArray arrayWithObjects:rootNav, detailNav, nil];
+        self.window.rootViewController = splitViewController;
+    }
     
     
 }
