@@ -44,6 +44,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    NSLog(@"test for moves");
     if (self) {
         //Fetch all the questions when the controller is initialized as these are the same for all contacts
         [Contact fetchQuestions];
